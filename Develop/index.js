@@ -4,16 +4,18 @@ const questions = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'confirm',
-            message: 'Hello. Would you like to create a README.md file for a project? (Required)',
-            validate: confirmInput => {
-                if (confirmInput) {
-                    return true;
-                } else {
-                    console.log('Goodbye.');
-                    return false;
-                }
-            }
+            name: 'initialize',
+            message: 'Hello. Would you like to create a README.md file for a project? (Required)'
+        },
+        {
+            type: 'input',
+            name: 'username',
+            message: 'Please enter your GitHub username.',
+        },
+        {
+            type: 'input',
+            name: 'project',
+            message: 'Please enter the name of your project.'
         },
         {
             type: 'input',
@@ -30,7 +32,7 @@ const questions = () => {
     ]);
 };
 
-    promptUser().then(answers => console.log(answers));
+    questions().then(answers => console.log(answers));
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
